@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      #map {
+        height: 80%;
+        width: 80%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+  </body>
+  <script
+    async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWbo15WBNGGpWAWreL35JLWqvefnh1U58&callback=initMap"
+  ></script>
+  <script>
+    //new map
+    //101位置 25.033953570933967, 121.56509967426602
+    function initMap() {
+      const myLocation = { lat: 25.033953570933967, lng: 121.56509967426602 };
+      let map = new google.maps.Map(document.getElementById("map"), {
+        center: myLocation,
+        zoom: 16,
+      });
+
+      //add marker
+      new google.maps.Marker({
+        position: myLocation,
+        map,
+        title: "my home",
+      });
+    }
+
+    initMap();
+  </script>
+</html>
